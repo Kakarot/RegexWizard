@@ -10,6 +10,8 @@ namespace TestRegexWizard
         [TestMethod]
         public void RegEx_01()
         {
+            //remember that the @ symbol is known as making a string verbatim,
+            //to avoid common escape characters, exceptions are quotations.
             string pattern = @"\bcat\b";
             Regex rgx = new Regex(pattern);
             string sentence = "kat cat";
