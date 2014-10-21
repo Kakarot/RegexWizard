@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Text.RegularExpressions;
 
 namespace TestRegexWizard
 {
@@ -7,8 +8,32 @@ namespace TestRegexWizard
     public class TestFilter
     {
         [TestMethod]
-        public void TestMethod1()
+        public void RegEx_01()
         {
+            string pattern = @"\bcat\b";
+            Regex rgx = new Regex(pattern);
+            string sentence = "kat cat";
+
+            //foreach (Match match in rgx.Matches(sentence))
+            //    Console.WriteLine("Found '{0}' at position {1}",
+            //                      match.Value, match.Index);
+
+            Match myMatch = rgx.Match(sentence);
+            Assert.AreEqual(4, myMatch.Index);
+        }
+        [TestMethod]
+        public void RegEx_02()
+        {
+            string pattern = @"\bcat\b";
+            Regex rgx = new Regex(pattern);
+            string sentence = "kat cat";
+
+            //foreach (Match match in rgx.Matches(sentence))
+            //    Console.WriteLine("Found '{0}' at position {1}",
+            //                      match.Value, match.Index);
+
+            Match myMatch = rgx.Match(sentence);
+            Assert.AreEqual("cat", myMatch.Value);
         }
     }
 }
